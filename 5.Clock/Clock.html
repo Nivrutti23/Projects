@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clock</title>
+    <style>
+      body {
+        background-image: linear-gradient(
+          to right,
+          rgb(200, 200, 232),
+          rgb(137, 137, 214)
+        );
+        
+      }
+      h1{
+            height: 50px;
+            width: 150px;
+            background-color: white;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 30px;
+            margin: 10% 30%;
+        }
+        span{
+            position: relative;
+        }
+        span::after{
+            content:"hour";
+            position: absolute;
+            font-size: 10px;
+            top: 10px;
+            left: -5px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 class="clock">
+      <span id="hr"></span>:<span id="mn"></span>:<span id="sec"></span>
+    </h1>
+    <script>
+      let hour = document.getElementById("hr");
+      let min = document.getElementById("mn");
+      let sec = document.getElementById("sec");
+
+      function udpateTime() {
+        let tm = new Date();
+
+        let hr = tm.getHours();
+        let mn = tm.getMinutes();
+        let sc = tm.getSeconds();
+        hour.innerHTML = hr - 12;
+        min.innerHTML = mn;
+        sec.innerHTML = sc;
+      }
+
+      setInterval(udpateTime, 1000);
+    </script>
+  </body>
+</html>
